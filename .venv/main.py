@@ -4,9 +4,10 @@ import random
 от = int(input("От: "))
 до = int(input("До: "))
 
-print("Результат: ")
+print("\nРезультат: ")
 счётчик = 0
 while счётчик < количество_чисел:
     случайное_число = random.randint(от, до)
     print(случайное_число, end=" ")
     счётчик += 1
+print()
