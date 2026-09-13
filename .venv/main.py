@@ -4,6 +4,7 @@ from pathlib import Path
 import secrets
 import os
 import random
+from datetime import datetime
 
 количество_чисел = int(input("Сколько чисел сгенерировать: "))
 от = int(input("От: "))
@@ -41,7 +42,11 @@ print()
 накопитель_чисел.sort()
 documents = Path.home() / "Documents"
 file_path = documents / "Лотерейные номера.txt"
+текущая_дата = datetime.now()
 with open(file_path, 'a', encoding='utf-8') as f:
+    f.write('Дата: ' + текущая_дата.strftime("%d.%m.%Y | %H:%M:%S"))
+    f.write("\n--------------------------")
     f.write('\nРезультат: ')
     for элемент in накопитель_чисел:
         f.write(str(элемент) + " ")
+    f.write("\n==========================\n\n")
