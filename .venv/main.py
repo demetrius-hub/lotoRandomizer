@@ -18,12 +18,12 @@ while счётчик < количество_чисел:
     time.sleep(случайный_промежуток)
 
     # Комбинируем: системный RNG, os.urandom и secrets
-    value1 = secrets.randbelow(до)
-    value2 = int.from_bytes(os.urandom(от), 'big') % до
-    value3 = random.SystemRandom().randint(от-1, до-1)
+    значение1 = secrets.randbelow(до)
+    значение2 = int.from_bytes(os.urandom(от), 'big') % до
+    значение3 = random.SystemRandom().randint(от-1, до-1)
     # Смешиваем значения через XOR
-    combined = (value1 ^ value2 ^ value3) % до + от
-    накопитель_чисел.append(combined)
+    комбинированный = (значение1 ^ значение2 ^ значение3) % до + от
+    накопитель_чисел.append(комбинированный)
 
     # Проверка сгенерированных чисел на совпадения
     if счётчик > 0:
