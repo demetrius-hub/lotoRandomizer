@@ -5,7 +5,7 @@ from pathlib import Path
 количество_чисел = int(input("Сколько чисел сгенерировать: "))
 от = int(input("От: "))
 до = int(input("До: "))
-промежуток_в_секундах = int(input("Промежуток времени между генерациями (в минутах): ")) #* 60
+промежуток_в_секундах = int(input("Промежуток времени между генерациями (в минутах): ")) * 60
 
 print("\nРезультат: ")
 счётчик = 0
@@ -31,7 +31,7 @@ print()
 
 накопитель_чисел.sort()
 documents = Path.home() / "Documents"
-file_path = documents / "lotoNumbers.txt"
+file_path = documents / "Лотерейные номера.txt"
 with open(file_path, 'a', encoding='utf-8') as f:
     f.write('\nРезультат: ')
     for элемент in накопитель_чисел:
