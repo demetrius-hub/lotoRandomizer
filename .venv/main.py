@@ -1,6 +1,9 @@
 import random
 import time
 from pathlib import Path
+import secrets
+import os
+import random
 
 количество_чисел = int(input("Сколько чисел сгенерировать: "))
 от = int(input("От: "))
@@ -14,7 +17,13 @@ while счётчик < количество_чисел:
     случайный_промежуток = random.randint(1, промежуток_в_секундах)
     time.sleep(случайный_промежуток)
 
-    накопитель_чисел.append(random.randint(от, до))
+    # Комбинируем: системный RNG, os.urandom и secrets
+    value1 = secrets.randbelow(до)
+    value2 = int.from_bytes(os.urandom(от), 'big') % до
+    value3 = random.SystemRandom().randint(от-1, до-1)
+    # Смешиваем значения через XOR
+    combined = (value1 ^ value2 ^ value3) % до + от
+    накопитель_чисел.append(combined)
 
     # Проверка сгенерированных чисел на совпадения
     if счётчик > 0:
