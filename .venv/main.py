@@ -1,10 +1,11 @@
 import random
 import time
+from pathlib import Path
 
 количество_чисел = int(input("Сколько чисел сгенерировать: "))
 от = int(input("От: "))
 до = int(input("До: "))
-промежуток_в_секундах = int(input("Промежуток времени между генерациями (в минутах): ")) * 60
+промежуток_в_секундах = int(input("Промежуток времени между генерациями (в минутах): ")) #* 60
 
 print("\nРезультат: ")
 счётчик = 0
@@ -27,3 +28,11 @@ while счётчик < количество_чисел:
     print(накопитель_чисел[счётчик], end=" ")
     счётчик += 1
 print()
+
+накопитель_чисел.sort()
+documents = Path.home() / "Documents"
+file_path = documents / "lotoNumbers.txt"
+with open(file_path, 'a', encoding='utf-8') as f:
+    f.write('\nРезультат: ')
+    for элемент in накопитель_чисел:
+        f.write(str(элемент) + " ")
