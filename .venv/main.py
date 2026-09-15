@@ -25,33 +25,35 @@ import secrets
 import os
 from datetime import datetime
 from playsound3 import playsound
+from colorama import Fore, Back, Style, init
 
+init(autoreset=True)
 while True:
     try:
         количество_чисел = int(input("Сколько чисел сгенерировать: "))
         break
     except ValueError:
-        print("Ошибка! Введите целое число")
+        print(Fore.RED + "Ошибка! Введите целое число")
 while True:
     try:
         от = int(input("От: "))
         break
     except ValueError:
-        print("Ошибка! Введите целое число")
+        print(Fore.RED + "Ошибка! Введите целое число")
 while True:
     try:
         до = int(input("До: "))
         break
     except ValueError:
-        print("Ошибка! Введите целое число")
+        print(Fore.RED + "Ошибка! Введите целое число")
 while True:
     try:
         промежуток_в_секундах = int(input("Максимальный промежуток времени между генерациями (в минутах): ")) * 60
         break
     except ValueError:
-        print("Ошибка! Введите целое число")
+        print(Fore.RED + "Ошибка! Введите целое число")
 
-print("\nРезультат: ")
+print(Fore.GREEN + "\nРезультат: ")
 счётчик = 0
 накопитель_чисел = []
 while счётчик < количество_чисел:
