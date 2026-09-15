@@ -7,17 +7,38 @@ import random
 from datetime import datetime
 from playsound3 import playsound
 
-количество_чисел = int(input("Сколько чисел сгенерировать: "))
-от = int(input("От: "))
-до = int(input("До: "))
-промежуток_в_секундах = int(input("Максимальный промежуток времени между генерациями (в минутах): ")) * 60
+while True:
+    try:
+        количество_чисел = int(input("Сколько чисел сгенерировать: "))
+        break
+    except ValueError:
+        print("Ошибка! Введите целое число")
+while True:
+    try:
+        от = int(input("От: "))
+        break
+    except ValueError:
+        print("Ошибка! Введите целое число")
+while True:
+    try:
+        до = int(input("До: "))
+        break
+    except ValueError:
+        print("Ошибка! Введите целое число")
+while True:
+    try:
+        промежуток_в_секундах = int(input("Максимальный промежуток времени между генерациями (в минутах): ")) * 60
+        break
+    except ValueError:
+        print("Ошибка! Введите целое число")
 
 print("\nРезультат: ")
 счётчик = 0
 накопитель_чисел = []
 while счётчик < количество_чисел:
-    случайный_промежуток = random.randint(1, промежуток_в_секундах)
-    time.sleep(случайный_промежуток)
+    if промежуток_в_секундах > 0:
+        случайный_промежуток = random.randint(1, промежуток_в_секундах)
+        time.sleep(случайный_промежуток)
 
     # Генерация с помощью комбинирования системного RNG, os.urandom, secrets и смешивания через XOR
     def генерация_числа():
