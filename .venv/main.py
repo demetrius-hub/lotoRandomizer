@@ -3,7 +3,7 @@
 ║     Программа генерации случайных чисел    ║
 ╚════════════════════════════════════════════╝
 
-Версия:     1.0
+Версия:     0.2.1
 Автор:      Дмитрий Подольский
 Дата:       2026-09-15
 Лицензия:   MIT
@@ -23,7 +23,6 @@ import time
 from pathlib import Path
 import secrets
 import os
-import random
 from datetime import datetime
 from playsound3 import playsound
 
