@@ -5,11 +5,12 @@ import secrets
 import os
 import random
 from datetime import datetime
+from playsound3 import playsound
 
 количество_чисел = int(input("Сколько чисел сгенерировать: "))
 от = int(input("От: "))
 до = int(input("До: "))
-промежуток_в_секундах = int(input("Промежуток времени между генерациями (в минутах): ")) * 60
+промежуток_в_секундах = int(input("Максимальный промежуток времени между генерациями (в минутах): ")) * 60
 
 print("\nРезультат: ")
 счётчик = 0
@@ -37,9 +38,12 @@ while счётчик < количество_чисел:
                 второстипенный_счётчик = -1
             второстипенный_счётчик += 1
 
+    playsound('resources/sounds/key.mp3')
     print(накопитель_чисел[счётчик], end=" ")
     счётчик += 1
 print()
+
+playsound("resources/sounds/finish.mp3")
 
 накопитель_чисел.sort()
 documents = Path.home() / "Documents"
