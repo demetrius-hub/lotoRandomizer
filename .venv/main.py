@@ -32,24 +32,36 @@ try:
     while True:
         try:
             количество_чисел = int(input("Сколько чисел сгенерировать: "))
+            if (количество_чисел < 1):
+                print(Fore.RED + "Ошибка! Число должно быть положительным.")
+                continue
             break
         except ValueError:
             print(Fore.RED + "Ошибка! Введите целое число")
     while True:
         try:
             от = int(input("От: "))
+            if (от < 1):
+                print(Fore.RED + "Ошибка! Число должно быть положительным.")
+                continue
             break
         except ValueError:
             print(Fore.RED + "Ошибка! Введите целое число")
     while True:
         try:
             до = int(input("До: "))
+            if (до < 2):
+                print(Fore.RED + "Ошибка! Число должно быть положительным и не меньше 2")
+                continue
             break
         except ValueError:
             print(Fore.RED + "Ошибка! Введите целое число")
     while True:
         try:
             промежуток_в_секундах = int(input("Максимальный промежуток времени между генерациями (в минутах): ")) * 60
+            if (промежуток_в_секундах < 0):
+                print(Fore.RED + "Ошибка! Число должно быть не меньше 0")
+                continue
             break
         except ValueError:
             print(Fore.RED + "Ошибка! Введите целое число")
@@ -99,5 +111,6 @@ try:
         for элемент in накопитель_чисел:
             f.write(str(элемент) + " ")
         f.write("\n===========================\n\n")
+
 except:
     print(Fore.GREEN + "\nПрограмма завершила свою работу...")
